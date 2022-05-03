@@ -79,19 +79,19 @@ function Modal() {
             leaveFrom="opacity-100 translate-y-0 sm:scale-100"
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
-            <div className="inline-block align-bottom bg-black rounded-2xl text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-xl sm:w-full">
-              <div className="flex items-center px-1.5 py-2 border-b border-gray-700">
+            <div className="inline-block align-bottom bg-white rounded-2xl text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-xl sm:w-full">
+              <div className="flex items-center px-1.5 py-2 border-b border-gray-200">
                 <div
                   className="hoverAnimation w-9 h-9 flex items-center justify-center xl:px-0"
                   onClick={() => setIsOpen(false)}
                 >
-                  <XIcon className="h-[22px] text-white" />
+                  <XIcon className="h-[22px] text-gray-700" />
                 </div>
               </div>
               <div className="flex px-4 pt-5 pb-2.5 sm:px-6">
                 <div className="w-full">
-                  <div className="text-[#6e767d] flex gap-x-3 relative">
-                    <span className="w-0.5 h-full z-[-1] absolute left-5 top-11 bg-gray-600" />
+                  <div className="text-gray-700 flex gap-x-3 relative">
+                    <span className="w-0.5 h-full z-[-1] absolute left-5 top-11 bg-gray-300" />
                     <img
                       src={post?.userImg}
                       alt=""
@@ -99,7 +99,7 @@ function Modal() {
                     />
                     <div>
                       <div className="inline-block group">
-                        <h4 className="font-bold text-[#d9d9d9] inline-block text-[15px] sm:text-base">
+                        <h4 className="font-bold text- inline-block text-[15px] sm:text-base">
                           {post?.username}
                         </h4>
                         <span className="ml-1.5 text-sm sm:text-[15px]">
@@ -110,7 +110,7 @@ function Modal() {
                       <span className="hover:underline text-sm sm:text-[15px]">
                         <Moment fromNow>{post?.timestamp?.toDate()}</Moment>
                       </span>
-                      <p className="text-[#d9d9d9] text-[15px] sm:text-base">
+                      <p className="text-gray-500 text-[15px] sm:text-base">
                         {post?.text}
                       </p>
                     </div>
@@ -128,7 +128,7 @@ function Modal() {
                         onChange={(e) => setComment(e.target.value)}
                         placeholder="Tweet your reply"
                         rows="2"
-                        className="bg-transparent outline-none text-[#d9d9d9] text-lg placeholder-gray-500 tracking-wide w-full min-h-[80px]"
+                        className="bg-transparent outline-none text-gray-700 text-lg placeholder-gray-500 tracking-wide w-full min-h-[80px]"
                       />
 
                       <div className="flex items-center justify-between pt-2.5">
@@ -137,16 +137,8 @@ function Modal() {
                             <PhotographIcon className="text-[#1d9bf0] h-[22px]" />
                           </div>
 
-                          <div className="icon rotate-90">
-                            <ChartBarIcon className="text-[#1d9bf0] h-[22px]" />
-                          </div>
-
                           <div className="icon">
                             <EmojiHappyIcon className="text-[#1d9bf0] h-[22px]" />
-                          </div>
-
-                          <div className="icon">
-                            <CalendarIcon className="text-[#1d9bf0] h-[22px]" />
                           </div>
                         </div>
                         <button

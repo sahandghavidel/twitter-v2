@@ -8,12 +8,17 @@ import { getStorage } from "firebase/storage";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyB-wr7pm3PCc-x5cjUXIHA1JaYpe26lqrc",
-  authDomain: "twitter-clone-6e5ac.firebaseapp.com",
-  projectId: "twitter-clone-6e5ac",
-  storageBucket: "twitter-clone-6e5ac.appspot.com",
-  messagingSenderId: "648866725892",
-  appId: "1:648866725892:web:1e3fed6b90ee9f494b7551",
+  apiKey: "AIzaSyA0amLt4dQXKEBNQqAXbaD41_YhuUdRvi4",
+
+  authDomain: "twitter-v2-76df1.firebaseapp.com",
+
+  projectId: "twitter-v2-76df1",
+
+  storageBucket: "twitter-v2-76df1.appspot.com",
+
+  messagingSenderId: "940354074388",
+
+  appId: "1:940354074388:web:95b92f90247f2ff635f401",
 };
 
 // Initialize Firebase

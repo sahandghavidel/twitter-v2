@@ -57,15 +57,15 @@ function PostPage({ trendingResults, followResults, providers }) {
         </title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="bg-black min-h-screen flex max-w-[1500px] mx-auto">
+      <main className=" min-h-screen flex max-w-[1500px] mx-auto">
         <Sidebar />
-        <div className="flex-grow border-l border-r border-gray-700 max-w-2xl sm:ml-[73px] xl:ml-[370px]">
-          <div className="flex items-center px-1.5 py-2 border-b border-gray-700 text-[#d9d9d9] font-semibold text-xl gap-x-4 sticky top-0 z-50 bg-black">
+        <div className="flex-grow border-l border-r border-gray-200 max-w-xl sm:ml-[73px] xl:ml-[370px] xl:min-w-[576px]">
+          <div className="bg-white flex items-center px-1.5 py-2 border-b border-gray-200 text-gray-700 font-bold text-xl gap-x-4 sticky top-0 z-50 ">
             <div
               className="hoverAnimation w-9 h-9 flex items-center justify-center xl:px-0"
               onClick={() => router.push("/")}
             >
-              <ArrowLeftIcon className="h-5 text-white" />
+              <ArrowLeftIcon className="h-5 " />
             </div>
             Tweet
           </div>
@@ -84,8 +84,8 @@ function PostPage({ trendingResults, followResults, providers }) {
           )}
         </div>
         <Widgets
-          trendingResults={trendingResults}
-          followResults={followResults}
+          trendingResults={trendingResults.articles}
+          followResults={followResults.results}
         />
 
         {isOpen && <Modal />}
@@ -95,14 +95,15 @@ function PostPage({ trendingResults, followResults, providers }) {
 }
 
 export default PostPage;
-
+// https://randomuser.me/
+// https://github.com/SauravKanchan/NewsAPI
 export async function getServerSideProps(context) {
-  const trendingResults = await fetch("https://jsonkeeper.com/b/NKEV").then(
-    (res) => res.json()
-  );
-  const followResults = await fetch("https://jsonkeeper.com/b/WWMJ").then(
-    (res) => res.json()
-  );
+  const trendingResults = await fetch(
+    "https://saurav.tech/NewsAPI/top-headlines/category/science/us.json"
+  ).then((res) => res.json());
+  const followResults = await fetch(
+    "https://randomuser.me/api/?results=50"
+  ).then((res) => res.json());
   const providers = await getProviders();
   const session = await getSession(context);
 

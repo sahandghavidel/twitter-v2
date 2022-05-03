@@ -21,12 +21,12 @@ export default function Home({ trendingResults, followResults, providers }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="bg-black min-h-screen flex max-w-[1500px] mx-auto">
+      <main className=" min-h-screen flex mx-auto">
         <Sidebar />
         <Feed />
         <Widgets
-          trendingResults={trendingResults}
-          followResults={followResults}
+          trendingResults={trendingResults.articles}
+          followResults={followResults.results}
         />
 
         {isOpen && <Modal />}
@@ -36,12 +36,12 @@ export default function Home({ trendingResults, followResults, providers }) {
 }
 
 export async function getServerSideProps(context) {
-  const trendingResults = await fetch("https://jsonkeeper.com/b/NKEV").then(
-    (res) => res.json()
-  );
-  const followResults = await fetch("https://jsonkeeper.com/b/WWMJ").then(
-    (res) => res.json()
-  );
+  const trendingResults = await fetch(
+    "https://saurav.tech/NewsAPI/top-headlines/category/business/us.json"
+  ).then((res) => res.json());
+  const followResults = await fetch(
+    "https://randomuser.me/api/?results=50"
+  ).then((res) => res.json());
   const providers = await getProviders();
   const session = await getSession(context);
 

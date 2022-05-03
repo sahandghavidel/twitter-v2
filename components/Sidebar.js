@@ -19,10 +19,14 @@ function Sidebar() {
 
   return (
     <div className="hidden sm:flex flex-col items-center xl:items-start xl:w-[340px] p-2 fixed h-full">
-      <div className="flex items-center justify-center w-14 h-14 hoverAnimation p-0 xl:ml-24">
-        <Image src="https://rb.gy/ogau5a" width={30} height={30} />
+      <div className="flex items-center justify-center w-14 h-14 hoverAnimation p-0 xl:ml-24 hover:bg-blue-100">
+        <Image
+          src="https://help.twitter.com/content/dam/help-twitter/brand/logo.png"
+          width={50}
+          height={50}
+        />
       </div>
-      <div className="space-y-2.5 mt-4 mb-2.5 xl:ml-24">
+      <div className=" mt-4 mb-2.5 xl:ml-24">
         <SidebarLink text="Home" Icon={HomeIcon} active />
         <SidebarLink text="Explore" Icon={HashtagIcon} />
         <SidebarLink text="Notifications" Icon={BellIcon} />
@@ -36,7 +40,7 @@ function Sidebar() {
         Tweet
       </button>
       <div
-        className="text-[#d9d9d9] flex items-center justify-center mt-auto hoverAnimation xl:ml-auto xl:-mr-5"
+        className="text-gray-700 flex items-center justify-center mt-auto hoverAnimation xl:ml-auto xl:-mr-5"
         onClick={signOut}
       >
         <img

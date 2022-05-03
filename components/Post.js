@@ -77,7 +77,7 @@ function Post({ id, post, postPage }) {
 
   return (
     <div
-      className="p-3 flex cursor-pointer border-b border-gray-700"
+      className="p-3 flex cursor-pointer border-b border-gray-200"
       onClick={() => router.push(`/${id}`)}
     >
       {!postPage && (
@@ -93,13 +93,13 @@ function Post({ id, post, postPage }) {
             <img
               src={post?.userImg}
               alt="Profile Pic"
-              className="h-11 w-11 rounded-full mr-4"
+              className="h-11 w-11 rounded-full mr-4 "
             />
           )}
-          <div className="text-[#6e767d]">
+          <div className="text-gray-700">
             <div className="inline-block group">
               <h4
-                className={`font-bold text-[15px] sm:text-base text-[#d9d9d9] group-hover:underline ${
+                className={`font-bold text-[15px]   sm:text-base text-gray-900 group-hover:underline ${
                   !postPage && "inline-block"
                 }`}
               >
@@ -116,7 +116,7 @@ function Post({ id, post, postPage }) {
               <Moment fromNow>{post?.timestamp?.toDate()}</Moment>
             </span>
             {!postPage && (
-              <p className="text-[#d9d9d9] text-[15px] sm:text-base mt-0.5">
+              <p className="text-gray-800 text-[15px] sm:text-base mt-0.5">
                 {post?.text}
               </p>
             )}
@@ -126,7 +126,7 @@ function Post({ id, post, postPage }) {
           </div>
         </div>
         {postPage && (
-          <p className="text-[#d9d9d9] mt-0.5 text-xl">{post?.text}</p>
+          <p className="text-gray-600 mt-0.5 text-xl">{post?.text}</p>
         )}
         <img
           src={post?.image}
@@ -156,7 +156,7 @@ function Post({ id, post, postPage }) {
             )}
           </div>
 
-          {session.user.uid === post?.id ? (
+          {session.user.uid === post?.id && (
             <div
               className="flex items-center space-x-1 group"
               onClick={(e) => {
@@ -167,12 +167,6 @@ function Post({ id, post, postPage }) {
             >
               <div className="icon group-hover:bg-red-600/10">
                 <TrashIcon className="h-5 group-hover:text-red-600" />
-              </div>
-            </div>
-          ) : (
-            <div className="flex items-center space-x-1 group">
-              <div className="icon group-hover:bg-green-500/10">
-                <SwitchHorizontalIcon className="h-5 group-hover:text-green-500" />
               </div>
             </div>
           )}
